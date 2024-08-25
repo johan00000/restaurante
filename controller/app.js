@@ -4,19 +4,22 @@ const http= require('http')
 const port=5000
 const host="localhost"
 
-const server =http.createServer((request,response)=>{
-    response.end('hola mundo')
-
+const server = http.createServer((request,response)=>{
     try{
         if(request.method == "GET" && request.url=="/"){
-            response.end(JSON.stringify({"view":"1"}))
+            response.statusCode=200
+            response.end(JSON.stringify({"view":"12"}))
 
-        } else if(request.method == "GET" && request.url=="vista1"){
+        }else if(request.method == "GET" && request.url=="/vista"){
+            response.statusCode=200
             response.end(JSON.stringify({"userStatus":"access"}))
 
+        }else{
+            response.statusCode=400
+            response.end(JSON.stringify({"error":"access no encontrado"}))
         }
-    }catch{
-        response.end("la ruta no esta encontrada")
+    }catch(err){
+        response.end("erro en el servidor")
     }
 })
 
