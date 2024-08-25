@@ -4,12 +4,15 @@
   "description": "sistema de restaurante para la venta de platos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon controller/app.js"
   },
   "author": "orozco",
   "license": "ISC",
   "dependencies": {
     "demonode": "^1.0.0",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
